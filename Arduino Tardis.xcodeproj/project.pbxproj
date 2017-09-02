@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A27CD891F589C7F0030F164 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A27CD871F589C7F0030F164 /* Mesh.cpp */; };
+		5A654F551F51E3F60021CBF0 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A654F541F51E3F60021CBF0 /* libglfw.3.2.dylib */; };
+		5A654F571F51E4130021CBF0 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A654F561F51E4130021CBF0 /* libGLEW.2.1.0.dylib */; };
+		5A654F5E1F51E45E0021CBF0 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A654F5B1F51E45E0021CBF0 /* utilities.cpp */; };
+		5A654F781F532AB90021CBF0 /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A654F771F532AB90021CBF0 /* libassimp.4.0.1.dylib */; };
 		5A6E6C301F51E27B0029A58C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E6C2F1F51E27B0029A58C /* main.cpp */; };
+		5A6E6C381F51E33E0029A58C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6E6C371F51E33E0029A58C /* OpenGL.framework */; };
+		5A927C7E1F599FF600E361CF /* TARDIS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A654F5F1F51E47E0021CBF0 /* TARDIS.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +30,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A27CD871F589C7F0030F164 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		5A27CD881F589C7F0030F164 /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		5A654F541F51E3F60021CBF0 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		5A654F561F51E4130021CBF0 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		5A654F581F51E45E0021CBF0 /* controls.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = controls.cpp; path = "Arduino Tardis/controls.cpp"; sourceTree = "<group>"; };
+		5A654F591F51E45E0021CBF0 /* controls.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = controls.hpp; path = "Arduino Tardis/controls.hpp"; sourceTree = "<group>"; };
+		5A654F5B1F51E45E0021CBF0 /* utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utilities.cpp; path = "Arduino Tardis/utilities.cpp"; sourceTree = "<group>"; };
+		5A654F5C1F51E45E0021CBF0 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utilities.h; path = "Arduino Tardis/utilities.h"; sourceTree = "<group>"; };
+		5A654F5F1F51E47E0021CBF0 /* TARDIS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TARDIS.cpp; path = "Arduino Tardis/TARDIS.cpp"; sourceTree = "<group>"; };
+		5A654F601F51E47E0021CBF0 /* TARDIS.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TARDIS.hpp; path = "Arduino Tardis/TARDIS.hpp"; sourceTree = "<group>"; };
+		5A654F771F532AB90021CBF0 /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.0.1.dylib; path = ../../../../usr/local/Cellar/assimp/4.0.1/lib/libassimp.4.0.1.dylib; sourceTree = "<group>"; };
+		5A654F791F532CD20021CBF0 /* fragment_shader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment_shader.glsl; path = "Arduino Tardis/fragment_shader.glsl"; sourceTree = "<group>"; };
+		5A654F7A1F532CD20021CBF0 /* vertex_shader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex_shader.glsl; path = "Arduino Tardis/vertex_shader.glsl"; sourceTree = "<group>"; };
+		5A654F7D1F5330720021CBF0 /* l3dassimport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = l3dassimport.cpp; path = ../../.Trash/l3dassimport.cpp; sourceTree = "<group>"; };
+		5A654F841F5331C60021CBF0 /* libglut.3.10.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglut.3.10.0.dylib; path = ../../../../usr/local/Cellar/freeglut/3.0.0/lib/libglut.3.10.0.dylib; sourceTree = "<group>"; };
+		5A654F861F5332060021CBF0 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		5A6E6C2C1F51E27B0029A58C /* Arduino Tardis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Arduino Tardis"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6E6C2F1F51E27B0029A58C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5A6E6C371F51E33E0029A58C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +56,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A654F781F532AB90021CBF0 /* libassimp.4.0.1.dylib in Frameworks */,
+				5A654F571F51E4130021CBF0 /* libGLEW.2.1.0.dylib in Frameworks */,
+				5A654F551F51E3F60021CBF0 /* libglfw.3.2.dylib in Frameworks */,
+				5A6E6C381F51E33E0029A58C /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A27CD861F589C7F0030F164 /* importing */ = {
+			isa = PBXGroup;
+			children = (
+				5A27CD871F589C7F0030F164 /* Mesh.cpp */,
+				5A27CD881F589C7F0030F164 /* Mesh.hpp */,
+			);
+			name = importing;
+			path = "Arduino Tardis/importing";
+			sourceTree = "<group>";
+		};
 		5A6E6C231F51E27B0029A58C = {
 			isa = PBXGroup;
 			children = (
+				5A27CD861F589C7F0030F164 /* importing */,
+				5A654F791F532CD20021CBF0 /* fragment_shader.glsl */,
+				5A654F7A1F532CD20021CBF0 /* vertex_shader.glsl */,
+				5A927C7F1F59A06000E361CF /* TARDIS */,
+				5A927C801F59A06A00E361CF /* Controls */,
+				5A654F5B1F51E45E0021CBF0 /* utilities.cpp */,
+				5A654F5C1F51E45E0021CBF0 /* utilities.h */,
 				5A6E6C2E1F51E27B0029A58C /* Arduino Tardis */,
 				5A6E6C2D1F51E27B0029A58C /* Products */,
+				5A6E6C361F51E33E0029A58C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +106,38 @@
 				5A6E6C2F1F51E27B0029A58C /* main.cpp */,
 			);
 			path = "Arduino Tardis";
+			sourceTree = "<group>";
+		};
+		5A6E6C361F51E33E0029A58C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A654F861F5332060021CBF0 /* GLUT.framework */,
+				5A654F841F5331C60021CBF0 /* libglut.3.10.0.dylib */,
+				5A654F7D1F5330720021CBF0 /* l3dassimport.cpp */,
+				5A654F771F532AB90021CBF0 /* libassimp.4.0.1.dylib */,
+				5A654F561F51E4130021CBF0 /* libGLEW.2.1.0.dylib */,
+				5A654F541F51E3F60021CBF0 /* libglfw.3.2.dylib */,
+				5A6E6C371F51E33E0029A58C /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A927C7F1F59A06000E361CF /* TARDIS */ = {
+			isa = PBXGroup;
+			children = (
+				5A654F5F1F51E47E0021CBF0 /* TARDIS.cpp */,
+				5A654F601F51E47E0021CBF0 /* TARDIS.hpp */,
+			);
+			name = TARDIS;
+			sourceTree = "<group>";
+		};
+		5A927C801F59A06A00E361CF /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				5A654F581F51E45E0021CBF0 /* controls.cpp */,
+				5A654F591F51E45E0021CBF0 /* controls.hpp */,
+			);
+			name = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +198,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A927C7E1F599FF600E361CF /* TARDIS.cpp in Sources */,
+				5A654F5E1F51E45E0021CBF0 /* utilities.cpp in Sources */,
+				5A27CD891F589C7F0030F164 /* Mesh.cpp in Sources */,
 				5A6E6C301F51E27B0029A58C /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +301,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = RDS7BN3C7W;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					/usr/local/Cellar/glfw/3.2.1/lib/,
+					"/usr/local/Cellar/glfw@2/2.7.9/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/lib/,
+					/usr/local/Cellar/glfw/3.2.1/lib/,
+					/usr/local/Cellar/assimp/4.0.1/lib,
+					/usr/local/Cellar/freeglut/3.0.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -228,6 +322,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = RDS7BN3C7W;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					/usr/local/Cellar/glfw/3.2.1/lib/,
+					"/usr/local/Cellar/glfw@2/2.7.9/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/lib/,
+					/usr/local/Cellar/glfw/3.2.1/lib/,
+					/usr/local/Cellar/assimp/4.0.1/lib,
+					/usr/local/Cellar/freeglut/3.0.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -251,6 +358,7 @@
 				5A6E6C351F51E27B0029A58C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
