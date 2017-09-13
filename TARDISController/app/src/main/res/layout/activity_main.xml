@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="magicleon.tardiscontroller.MainActivity"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accel_x"
+        android:textSize="16dp"
+        android:padding="16dp"
+        tools:text="ACCEL_X"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accel_y"
+        android:textSize="16dp"
+        android:padding="16dp"
+        tools:text="ACCEL_Y"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accel_z"
+        android:textSize="16dp"
+        android:padding="16dp"
+        tools:text="ACCEL_Z"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gyro_x"
+        android:textSize="16dp"
+        android:padding="16dp"
+        tools:text="GYRO_X"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gyro_y"
+        android:textSize="16dp"
+        android:padding="16dp"
+        tools:text="GYRO_Y"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gyro_z"
+        android:textSize="16dp"
+        android:padding="16dp"
+        tools:text="GYRO_Z"/>
+
+</LinearLayout>
