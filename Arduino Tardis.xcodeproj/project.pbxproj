@@ -15,6 +15,7 @@
 		5A6E6C301F51E27B0029A58C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E6C2F1F51E27B0029A58C /* main.cpp */; };
 		5A6E6C381F51E33E0029A58C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6E6C371F51E33E0029A58C /* OpenGL.framework */; };
 		5A927C7E1F599FF600E361CF /* TARDIS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A654F5F1F51E47E0021CBF0 /* TARDIS.cpp */; };
+		5ACB8FAE1F693BE900810741 /* magicSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB8FAC1F693BE900810741 /* magicSocket.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,8 @@
 		5A6E6C2C1F51E27B0029A58C /* Arduino Tardis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Arduino Tardis"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6E6C2F1F51E27B0029A58C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5A6E6C371F51E33E0029A58C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		5ACB8FAC1F693BE900810741 /* magicSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = magicSocket.cpp; sourceTree = "<group>"; };
+		5ACB8FAD1F693BE900810741 /* magicSocket.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = magicSocket.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +82,12 @@
 		5A6E6C231F51E27B0029A58C = {
 			isa = PBXGroup;
 			children = (
+				5ACB8FAB1F693BE900810741 /* serverAPI */,
 				5A27CD861F589C7F0030F164 /* importing */,
-				5A654F791F532CD20021CBF0 /* fragment_shader.glsl */,
-				5A654F7A1F532CD20021CBF0 /* vertex_shader.glsl */,
+				5ACB8FAF1F693C8800810741 /* Shaders */,
 				5A927C7F1F59A06000E361CF /* TARDIS */,
 				5A927C801F59A06A00E361CF /* Controls */,
-				5A654F5B1F51E45E0021CBF0 /* utilities.cpp */,
-				5A654F5C1F51E45E0021CBF0 /* utilities.h */,
+				5ACB8FB01F693C9100810741 /* Utilities */,
 				5A6E6C2E1F51E27B0029A58C /* Arduino Tardis */,
 				5A6E6C2D1F51E27B0029A58C /* Products */,
 				5A6E6C361F51E33E0029A58C /* Frameworks */,
@@ -138,6 +140,34 @@
 				5A654F591F51E45E0021CBF0 /* controls.hpp */,
 			);
 			name = Controls;
+			sourceTree = "<group>";
+		};
+		5ACB8FAB1F693BE900810741 /* serverAPI */ = {
+			isa = PBXGroup;
+			children = (
+				5ACB8FAC1F693BE900810741 /* magicSocket.cpp */,
+				5ACB8FAD1F693BE900810741 /* magicSocket.hpp */,
+			);
+			name = serverAPI;
+			path = "Arduino Tardis/serverAPI";
+			sourceTree = "<group>";
+		};
+		5ACB8FAF1F693C8800810741 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				5A654F791F532CD20021CBF0 /* fragment_shader.glsl */,
+				5A654F7A1F532CD20021CBF0 /* vertex_shader.glsl */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		5ACB8FB01F693C9100810741 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5A654F5B1F51E45E0021CBF0 /* utilities.cpp */,
+				5A654F5C1F51E45E0021CBF0 /* utilities.h */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A927C7E1F599FF600E361CF /* TARDIS.cpp in Sources */,
+				5ACB8FAE1F693BE900810741 /* magicSocket.cpp in Sources */,
 				5A654F5E1F51E45E0021CBF0 /* utilities.cpp in Sources */,
 				5A27CD891F589C7F0030F164 /* Mesh.cpp in Sources */,
 				5A6E6C301F51E27B0029A58C /* main.cpp in Sources */,
