@@ -11,21 +11,15 @@
 #include <assimp/scene.h>           // Output data structure
 #include <assimp/postprocess.h>     // Post processing flags
 #include <vector>
+#include <thread>
+#include <mutex>
+#include <chrono>
 #include "Mesh.hpp"
 #include "TARDIS.hpp"
 using namespace glm;
 using namespace std;
 
 static const GLuint WIDTH = 800, HEIGHT = 600;
-
-struct MyMesh{
-    
-    GLuint vao;
-    GLuint texIndex;
-    GLuint uniformBlockIndex;
-    int numFaces;
-};
-void recursive_render (const aiScene *sc, const aiNode* nd, vector<struct MyMesh> &myMeshes);
 
 int main(){
     
@@ -74,7 +68,7 @@ int main(){
     glDepthFunc(GL_LESS);
 
     
-    GLuint programID = LoadShaders( "/Users/magicleon/Desktop/Arduino Tardis/Arduino Tardis/vertex_shader.glsl","/Users/magicleon/Desktop/Arduino Tardis/Arduino Tardis/fragment_shader.glsl");
+    GLuint programID = LoadShaders( "/Users/magicleon/Desktop/ArduinoTardis/Arduino Tardis/vertex_shader.glsl","/Users/magicleon/Desktop/ArduinoTardis/Arduino Tardis/fragment_shader.glsl");
 
     
     TARDIS tardis("/Users/magicleon/Downloads/tardis.3ds");
@@ -98,6 +92,20 @@ int main(){
     GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");
     mat4 mvp;
     
+    float dtx,dty,dtz,drx,dry,drz;
+    mutex m;
+    thread lullo([&dtx,&dty,&dtz,&drx,&dry,&drz,&m](){
+        for (int i = 0; i<1000; i++){
+            {
+                lock_guard<mutex> lg(m);
+                dtx -= 0.001;
+                dtz -= 0.005;
+            }
+            this_thread::sleep_for(chrono::milliseconds(200));
+        }
+        
+    });
+    
     do{
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
@@ -109,8 +117,10 @@ int main(){
         
         glm::vec3 lightPos = glm::vec3(4,0,44);
         glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);;
-        tardis.applyTranslation(vec3(0,0,-0.6));
-        tardis.applyTranslation(vec3(-0.1,0,0));
+        {
+            lock_guard<mutex> lg(m);
+            tardis.applyTranslation(vec3(dtx,dty,dtz));
+        }
         tardis.render();
         
         glfwSwapBuffers(window);
@@ -119,9 +129,8 @@ int main(){
     }while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
            glfwWindowShouldClose(window) == 0 );
     
-
+    lullo.join();
     glDeleteProgram(programID);
-
     glfwTerminate();
     return 0;
 
