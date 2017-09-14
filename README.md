@@ -7,6 +7,6 @@ The idea is to have a TARDIS (from Dr. Who) model, which is currently untextured
 and moving in a 3d space accordingly to the accelerometer/gyroscope values of an Android phone.
 
 ## Some work in progress multimedia
-[First model loading](https://www.instagram.com/p/BYeMFbLg-4Z/?taken-by=magicleon94)
-[Moving the first steps](https://www.instagram.com/p/BYiS7sDgznq/?taken-by=magicleon94)
-[First steps with the phone values](https://www.instagram.com/p/BZB_yHzABuz/?taken-by=magicleon94)
+[First model loading](https://www.instagram.com/p/BYeMFbLg-4Z/?taken-by=magicleon94)<br>
+[Moving the first steps](https://www.instagram.com/p/BYiS7sDgznq/?taken-by=magicleon94)<br>
+[First steps with the phone values](https://www.instagram.com/p/BZB_yHzABuz/?taken-by=magicleon94)<br>
