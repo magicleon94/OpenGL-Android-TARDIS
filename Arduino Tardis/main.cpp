@@ -16,6 +16,7 @@
 #include <chrono>
 #include "Mesh.hpp"
 #include "TARDIS.hpp"
+#include "MagicSocket.hpp"
 using namespace glm;
 using namespace std;
 
@@ -78,10 +79,11 @@ int main(){
 
     
     mat4 projectionMatrix = perspective(radians(45.0f), 4.0f/3.0f, 0.1f, 10000.0f);
-    mat4 viewMatrix1 = lookAt(vec3(20,20,70),vec3(0,0,0),vec3(0,1,0));
+//    mat4 viewMatrix1 = lookAt(vec3(20,20,70),vec3(0,0,0),vec3(0,1,0));
+    mat4 viewMatrix1 = lookAt(vec3(0,0,-70),vec3(0,0,0),vec3(0,1,0));
     tardis.setViewMatrix(viewMatrix1);
     tardis.applyTranslation(vec3(0,0,100));
-    tardis.startSpinning();
+//    tardis.startSpinning();
     
     
     
@@ -95,14 +97,25 @@ int main(){
     float dtx,dty,dtz,drx,dry,drz;
     mutex m;
     thread lullo([&dtx,&dty,&dtz,&drx,&dry,&drz,&m](){
-        for (int i = 0; i<1000; i++){
+        MagicSocket s = new MagicSocket(true);
+        s.Listen(1933);
+        char buffer[20];
+        
+        do{
+            MagicSocket newSocket = s.Accept();
+            newSocket.Receive(buffer,20);
+            string receivedString(buffer);
             {
                 lock_guard<mutex> lg(m);
-                dtx -= 0.001;
-                dtz -= 0.005;
+                dtx =   stof(receivedString.substr(1, 3));
+                dty = -  stof(receivedString.substr(7, 3));
+                dtz =   stof(receivedString.substr(12, 3));
             }
-            this_thread::sleep_for(chrono::milliseconds(200));
-        }
+            cout << "dx = " << dtx << "\t"
+            << "dy = " << dty << "\t"
+            << "dz = " << dtz << endl;
+            newSocket.Close();
+        }while (abs(dtx) != 9 && abs(dty) != 9 && abs(dtz) != 9);
         
     });
     

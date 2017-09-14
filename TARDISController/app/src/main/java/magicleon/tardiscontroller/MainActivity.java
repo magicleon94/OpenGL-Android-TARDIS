@@ -71,7 +71,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onPause();
         mSensorManager.unregisterListener(this);
     }
-
+    double capBetween(double value, double a, double b){
+        if (value<=a) return a;
+        if (value>=b) return b;
+        return value;
+    }
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
@@ -86,9 +90,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
 
             // Remove the gravity contribution with the high-pass filter.
-            linear_acceleration[0] = event.values[0] - gravity[0];
-            linear_acceleration[1] = event.values[1] - gravity[1];
-            linear_acceleration[2] = event.values[2] - gravity[2];
+            linear_acceleration[0] = capBetween(Math.round(event.values[0] - gravity[0]),-9,9);
+            linear_acceleration[1] = capBetween(Math.round(event.values[1] - gravity[1]),-9,9);
+            linear_acceleration[2] = capBetween(Math.round(event.values[2] - gravity[2]),-9,9);
             accel_x_tv.setText(Double.toString(linear_acceleration[0]));
             accel_y_tv.setText(Double.toString(linear_acceleration[1]));
             accel_z_tv.setText(Double.toString(linear_acceleration[2]));
