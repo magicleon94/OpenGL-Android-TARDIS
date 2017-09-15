@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Arduino Tardis.xcodeproj">
+      location = "self:/Users/magicleon/Desktop/AndroidTardis/Android Tardis.xcodeproj">
    </FileRef>
 </Workspace>

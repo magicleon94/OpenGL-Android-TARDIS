@@ -14,13 +14,12 @@
 #include <thread>
 #include <mutex>
 #include <chrono>
+#include <sstream>
 #include "Mesh.hpp"
 #include "TARDIS.hpp"
 #include "MagicSocket.hpp"
 using namespace glm;
 using namespace std;
-
-static const GLuint WIDTH = 800, HEIGHT = 600;
 
 int main(){
     
@@ -41,7 +40,7 @@ int main(){
     // Open a window and create its OpenGL context
     GLFWwindow* window;
     
-    window = glfwCreateWindow( 1024, 768, "Time and Relative Dimension In Space", NULL, NULL);
+    window = glfwCreateWindow( 1024, 1024, "Time and Relative Dimension In Space", NULL, NULL);
     
     if( window == NULL ){
         fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
@@ -64,26 +63,21 @@ int main(){
     
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     
-    glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+    glClearColor(0.2f, 0.2f, 0.5f, 0.0f);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
     
-    GLuint programID = LoadShaders( "/Users/magicleon/Desktop/ArduinoTardis/Arduino Tardis/vertex_shader.glsl","/Users/magicleon/Desktop/ArduinoTardis/Arduino Tardis/fragment_shader.glsl");
-
-    
-    TARDIS tardis("/Users/magicleon/Downloads/tardis.3ds");
-
-    tardis.applyScaling(vec3(0.009,0.009,0.009));
-    
-
+    GLuint programID = LoadShaders( "/Users/magicleon/Desktop/AndroidTardis/AndroidTardis/vertex_shader.glsl",
+                                    "/Users/magicleon/Desktop/AndroidTardis/AndroidTardis/fragment_shader.glsl");
+    TARDIS tardis("/Users/magicleon/Desktop/AndroidTardis/AndroidTardis/tardis.3ds");
+    tardis.applyScaling(vec3(0.008,0.008,0.008));
     
     mat4 projectionMatrix = perspective(radians(45.0f), 4.0f/3.0f, 0.1f, 10000.0f);
-//    mat4 viewMatrix1 = lookAt(vec3(20,20,70),vec3(0,0,0),vec3(0,1,0));
-    mat4 viewMatrix1 = lookAt(vec3(0,0,-70),vec3(0,0,0),vec3(0,1,0));
+    mat4 viewMatrix1 = lookAt(vec3(0,0,200),vec3(0,0,0),vec3(0,1,0));
     tardis.setViewMatrix(viewMatrix1);
     tardis.applyTranslation(vec3(0,0,100));
-//    tardis.startSpinning();
+    tardis.startSpinning();
     
     
     
@@ -96,29 +90,33 @@ int main(){
     
     float dtx,dty,dtz,drx,dry,drz;
     mutex m;
-    thread lullo([&dtx,&dty,&dtz,&drx,&dry,&drz,&m](){
+    bool running = true;
+    thread lullo([&dtx,&dty,&dtz,&drx,&dry,&drz,&m,&running](){
         MagicSocket s = new MagicSocket(true);
         s.Listen(1933);
         char buffer[20];
         
-        do{
+        while(running){
             MagicSocket newSocket = s.Accept();
             newSocket.Receive(buffer,20);
-            string receivedString(buffer);
-            {
-                lock_guard<mutex> lg(m);
-                dtx =   stof(receivedString.substr(1, 3));
-                dty = -  stof(receivedString.substr(7, 3));
-                dtz =   stof(receivedString.substr(12, 3));
+            istringstream ss(buffer);
+            lock_guard<mutex> lg(m);
+            
+            for (int i = 0; i<3; i++){
+                ss>>dtx;
+                ss>>dty;
+                ss>>dtz;
+                dtx *= -1;
+                dtz = 0;
             }
-            cout << "dx = " << dtx << "\t"
-            << "dy = " << dty << "\t"
-            << "dz = " << dtz << endl;
+            
+            
+        
             newSocket.Close();
-        }while (abs(dtx) != 9 && abs(dty) != 9 && abs(dtz) != 9);
+        }
         
     });
-    
+    float MULTIPLIER = 0.7;
     do{
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
@@ -132,7 +130,7 @@ int main(){
         glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);;
         {
             lock_guard<mutex> lg(m);
-            tardis.applyTranslation(vec3(dtx,dty,dtz));
+            tardis.applyTranslation(vec3(MULTIPLIER * dtx,MULTIPLIER * dty,MULTIPLIER * dtz));
         }
         tardis.render();
         
@@ -142,6 +140,7 @@ int main(){
     }while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
            glfwWindowShouldClose(window) == 0 );
     
+    running = false;
     lullo.join();
     glDeleteProgram(programID);
     glfwTerminate();

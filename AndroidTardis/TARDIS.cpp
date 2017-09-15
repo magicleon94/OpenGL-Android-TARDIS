@@ -23,6 +23,7 @@ TARDIS::TARDIS(const char *filename) : Mesh(filename){
     spinningAngle = 2.0f;
     spinningQuaternion = angleAxis(radians(spinningAngle), spinningAxis);
     spinning = false;
+    
 }
 
 
@@ -38,7 +39,8 @@ void TARDIS::applyRotation(float angle, vec3 axis){
 }
 
 void TARDIS::applyTranslation(vec3 translationVector){
-    viewMatrix = translate(viewMatrix, translationVector);
+    vec3 res = vec3(1,1,1);//(glm::greaterThan(glm::abs(translationVector) - vec3(1,1,1),vec3(1,1,1)));
+    viewMatrix = translate(viewMatrix,translationVector*res);
     
 }
 void TARDIS::applyScaling(vec3 scaleVector){

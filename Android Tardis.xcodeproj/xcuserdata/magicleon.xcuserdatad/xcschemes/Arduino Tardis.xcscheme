@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A6E6C2B1F51E27B0029A58C"
-               BuildableName = "Arduino Tardis"
-               BlueprintName = "Arduino Tardis"
-               ReferencedContainer = "container:Arduino Tardis.xcodeproj">
+               BuildableName = "Android Tardis"
+               BlueprintName = "Android Tardis"
+               ReferencedContainer = "container:Android Tardis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A6E6C2B1F51E27B0029A58C"
-            BuildableName = "Arduino Tardis"
-            BlueprintName = "Arduino Tardis"
-            ReferencedContainer = "container:Arduino Tardis.xcodeproj">
+            BuildableName = "Android Tardis"
+            BlueprintName = "Android Tardis"
+            ReferencedContainer = "container:Android Tardis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A6E6C2B1F51E27B0029A58C"
-            BuildableName = "Arduino Tardis"
-            BlueprintName = "Arduino Tardis"
-            ReferencedContainer = "container:Arduino Tardis.xcodeproj">
+            BuildableName = "Android Tardis"
+            BlueprintName = "Android Tardis"
+            ReferencedContainer = "container:Android Tardis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A6E6C2B1F51E27B0029A58C"
-            BuildableName = "Arduino Tardis"
-            BlueprintName = "Arduino Tardis"
-            ReferencedContainer = "container:Arduino Tardis.xcodeproj">
+            BuildableName = "Android Tardis"
+            BlueprintName = "Android Tardis"
+            ReferencedContainer = "container:Android Tardis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

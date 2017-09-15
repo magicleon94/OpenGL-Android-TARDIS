@@ -36,6 +36,7 @@ private:
     float spinningAngle;
     quat spinningQuaternion;
     bool spinning;
+    
 
 
 public:

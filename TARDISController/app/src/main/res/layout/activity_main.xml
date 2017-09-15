@@ -49,5 +49,9 @@
         android:textSize="16dp"
         android:padding="16dp"
         tools:text="GYRO_Z"/>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calib_button"
+        android:text="@string/calibrate"/>
 </LinearLayout>
